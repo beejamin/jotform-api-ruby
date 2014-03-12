@@ -4,7 +4,8 @@ require "uri"
 require "rubygems"
 require "json"
 
-class JotForm
+module JotForm
+  class JotForm
     attr_accessor :apiKey
     attr_accessor :baseURL
     attr_accessor :apiVersion
@@ -119,7 +120,7 @@ class JotForm
         return _executeGetRequest("report/"+reportID)
     end
 
-    def getFolder(folderID) 
+    def getFolder(folderID)
         return _executeGetRequest("folder/"+folderID)
     end
 
@@ -130,4 +131,5 @@ class JotForm
     def createFormSubmissions(formID, submission)
         return _executePostRequest("form/"+ formID +"/submissions", submission);
     end
+  end
 end
