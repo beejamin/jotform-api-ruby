@@ -2,11 +2,13 @@ module JotForm
   module Helpers
     def render_form(form)
       capture_haml do
-        haml_tag :form, {:method => 'post', :action => form.url} do |f|
+        haml_tag :form, {:method => 'post', :action => form.submission_url, :'accept-charset' => 'utf-8'} do |f|
           haml_tag :input, {:type => 'hidden', :name => 'formID', :value => form.id}
           haml_tag :div, {:class => 'form-structure'} do |h|
             render_questions(form)
           end
+          haml_tag :input, {:type => 'hidden', :name => 'website', :value => ""}
+          haml_tag :input, {:type => 'hidden', :name => 'simple_spc', :value => "#{form.id}-#{form.id}"}
         end
       end
     end
@@ -53,12 +55,13 @@ module JotForm
       case input_type(question)
       when 'select'
         haml_tag :select, {:name => "q#{question[:qid]}_#{question[:name]}", :id => "input_#{question[:qid]}"} do |h|
+          haml_tag :option, ' '
           question[:options].split('|').each do |o|
-            haml_tag :option, o
+            haml_tag :option, o, {:value => o}
           end
         end
       when 'button'
-        haml_tag :button, question[:text], {:type => 'submit', :name => "q#{question[:qid]}_#{question[:name]}", :id => "input_#{question[:qid]}"}
+        haml_tag :button, question[:text], {:type => 'submit', :id => "input_#{question[:qid]}"}
       when 'textarea'
         haml_tag :textarea, {:name => "q#{question[:qid]}_#{question[:name]}", :id => "input_#{question[:qid]}"}
       else

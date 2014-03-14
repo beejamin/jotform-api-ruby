@@ -10,5 +10,9 @@ module JotForm
         v
       end.sort{|a, b| a[:order].to_i <=> b[:order].to_i}
     end
+
+    def submission_url
+      "http://submit.jotformpro.com/submit/#{id}"
+    end
   end
 end
