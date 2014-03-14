@@ -99,7 +99,6 @@ module JotForm
         return _executeGetRequest("form/"+formID+"/properties/"+propertyKey)
     end
 
-
     def getFormSubmissions(formID)
         return _executeGetRequest("form/"+ formID +"/submissions")
     end
@@ -130,6 +129,12 @@ module JotForm
 
     def createFormSubmissions(formID, submission)
         return _executePostRequest("form/"+ formID +"/submissions", submission);
+    end
+
+    #Methods that wrap the 'getter' methods in the vanilla library:
+    def form(id)
+      @form ||= {}
+      @form[id] ||= ::JotForm::Form.new getForm(id)
     end
   end
 end
