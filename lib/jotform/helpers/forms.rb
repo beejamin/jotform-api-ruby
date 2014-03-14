@@ -2,7 +2,7 @@ module JotForm
   module Helpers
     def render_form(form)
       capture_haml do
-        haml_tag :form, {:method => 'post', :url => form.url} do |f|
+        haml_tag :form, {:method => 'post', :action => form.url} do |f|
           haml_tag :input, {:type => 'hidden', :name => 'formID', :value => form.id}
           haml_tag :div, {:class => 'form-structure'} do |h|
             render_questions(form)
