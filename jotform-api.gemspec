@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "jotform-api"
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ben Hull"]
-  s.date = "2014-03-12"
+  s.date = "2014-03-14"
   s.description = "Jotform have an API, and an official Ruby client, but it's not a gem. Now it is."
   s.email = "ben@spookandpuff.com"
   s.extra_rdoc_files = [
@@ -23,28 +23,36 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "jotform-api.gemspec",
     "lib/jotform-api.rb",
+    "lib/jotform/api.rb",
+    "lib/jotform/forms.rb",
+    "lib/jotform/helpers.rb",
+    "lib/jotform/helpers/forms.rb",
     "lib/jotform/jotform.rb"
   ]
   s.homepage = "http://github.com/beejamin/jotform-api"
   s.licenses = ["GNU"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "2.0.6"
   s.summary = "A simple gem wrapper for Jotform's ruby client."
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<haml>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 2.0.1"])
     else
+      s.add_dependency(%q<haml>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
     end
   else
+    s.add_dependency(%q<haml>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
