@@ -20,7 +20,7 @@ module JotForm
         required_class  = 'required'  if question[:required]
         size_class      = 'short'     if question[:size].to_i < 6
 
-        haml_tag :div, {:class => "field #{type_class} #{size_class} #{required_class}"} do |h|
+        haml_tag :div, {:class => "field #{type_class} #{size_class} #{required_class}", :id => "field_#{question[:name]}"} do |h|
           render_label(question)
           render_input(question)
         end
@@ -38,7 +38,8 @@ module JotForm
 
     def render_label(question)
       unless input_type(question) == 'button'
-        haml_tag :label, {:for => "input_#{question[:qid]}"} do |h|
+        label_class = question[:subLabel].blank? ? '' : 'with-note'
+        haml_tag :label, {:class => label_class, :for => "input_#{question[:qid]}"} do |h|
           haml_concat question[:text]
           haml_tag :span, question[:subLabel], {:class => 'note'} unless question[:subLabel].blank?
         end
