@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ben Hull"]
-  s.date = "2014-03-14"
+  s.date = "2014-03-19"
   s.description = "Jotform have an API, and an official Ruby client, but it's not a gem. Now it is."
   s.email = "ben@spookandpuff.com"
   s.extra_rdoc_files = [
@@ -34,11 +34,11 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/beejamin/jotform-api"
   s.licenses = ["GNU"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "2.0.6"
+  s.rubygems_version = "1.8.24"
   s.summary = "A simple gem wrapper for Jotform's ruby client."
 
   if s.respond_to? :specification_version then
-    s.specification_version = 4
+    s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<haml>, [">= 0"])
