@@ -19,8 +19,6 @@ Then run:
 
         $ bundle install
 
-If you're going to install
-
 ### Beware!
 
 This wrapper is the dumbest thing that can work. We're using it to fetch the questions for forms over the API, but if you try to use it for anything else, it will almost definitely break.

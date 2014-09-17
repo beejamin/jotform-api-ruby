@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "jotform-api"
-  s.version = "0.3.0"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ben Hull"]
-  s.date = "2014-03-19"
+  s.date = "2014-09-17"
   s.description = "Jotform have an API, and an official Ruby client, but it's not a gem. Now it is."
   s.email = "ben@spookandpuff.com"
   s.extra_rdoc_files = [
